@@ -26,6 +26,8 @@
 
 ## Code Update
 
+### Create .gitignore File to ignore .vscode Folder
+
 ### Update Contest Performance Record
 
 ### Upload Previous Code and Initialize Repository

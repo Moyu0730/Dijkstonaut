@@ -1,32 +1,25 @@
-{
-    "configurations": [
-        {
-            "name": "Win32",
-            "includePath": [
-                "${workspaceRoot}",
-                "C:\\MinGW\\include",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include\\c++"
-            ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "__GNUC__=5",
-                "__cdecl=__attribute__((__cdecl__))"
-            ],
-            "intelliSenseMode": "gcc-x64",
-            "browse": {
-                "path": [
-                    "${workspaceRoot}",
-                    "C:\\MinGW\\include",
-                    "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include",
-                    "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include\\c++"
+    {
+        "configurations": [
+            {
+                "name": "Mac",
+                "defines": [],
+                "macFrameworkPath": [
+                    "/System/Library/Frameworks",
+                    "/Library/Frameworks",
+                    "${workspaceFolder}/**"
                 ],
-                "limitSymbolsToIncludedHeaders": true,
-                "databaseFilename": ""
-            },
-            "compilerPath": "C:/MinGW/bin/gcc.exe"
-        }
-    ],
-    "version": 4
-}
+                "compilerPath": "/usr/bin/g++",
+                "cStandard": "c11",
+                "cppStandard": "c++17",
+                "intelliSenseMode": "clang-x64",
+                "browse": {
+                    "path": [
+                        "${workspaceFolder}"
+                    ],
+                    "limitSymbolsToIncludedHeaders": true,
+                    "databaseFilename": ""
+                }
+            }
+        ],
+        "version": 4
+    }
