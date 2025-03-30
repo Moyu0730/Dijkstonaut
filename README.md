@@ -26,6 +26,8 @@
 
 ## Code Update
 
+### Update AtCoder 398
+
 ### Update Contest Performance Record
 
 ### Upload Previous Code and Initialize Repository
