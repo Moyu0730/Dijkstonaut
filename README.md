@@ -17,6 +17,10 @@
     * **Total Score**：700
     * Accepted：3
     * Wrong Answer：3
+* Beginner Contest 398
+    * **Total Score**：650
+    * Accepted：3
+    * Wrong Answer：4
 
 ### Intramural Competition
 
@@ -25,6 +29,8 @@
 ### Off-campus Competition
 
 ## Code Update
+
+### Update AtCoder 398 - F. ABCBA
 
 ### Update AtCoder 398
 

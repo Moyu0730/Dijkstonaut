@@ -23,10 +23,8 @@ using namespace std;
 #define int long long
 #define ll long long
 
-#define n str.size()
-
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
-const int MAXN = 1e8 + 50;
+const int MAXN = 5e5 + 50;
 const int Mod = 1e9 + 7;
 const long long LLINF = 0x7FFFFFFFFFFFFFFF;
 const int INF = 0x7FFFFFFF;
@@ -37,13 +35,13 @@ const int MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 const int p = 48763;
 
 string str;
-int poshsh[MAXN], neghsh[MAXN], ksm[MAXN];
+int n, res, poshsh[MAXN], neghsh[MAXN], ksm[MAXN];
 
 void pre(){
     int power = p;
-    for( int i = 0 ; i < str.size() ; ++i ){
-        poshsh[i] = (i == 0) ? str[i] : poshsh[i-1] * p + str[i];
-        neghsh[i] = (i == 0) ? str[str.size()-i-1] : str[str.size()-i+1] * p + str[str.size()-i];
+    for( int i = 0 ; i < n ; ++i ){
+        poshsh[i] = (i == 0) ? str[i] : ( poshsh[i-1] * p ) % Mod + str[i];
+        neghsh[n-1-i] = (i == 0) ? str[n-1-i] : ( neghsh[n-1-i+1] * p ) % Mod + str[n-1-i];
         ksm[i] = (i == 0) ? 1 : ksm[i-1] * p;
 
         poshsh[i] %= Mod;
@@ -53,14 +51,20 @@ void pre(){
 }
 
 int getposhsh( int l, int r ){
-    return 
+    if( l == 0 ) return poshsh[r];
+    return ( poshsh[r] - ( poshsh[l-1] * ksm[r-l+1] ) % Mod + Mod ) % Mod;
 }
 
-int bs( int low, int high ){
-    int len = 0, step = n;
-    while( step > 0 ){
-        if(  )
-    }
+int getneghsh( int l, int r ){
+    if( r == n-1 ) return neghsh[l];
+    return ( neghsh[l] - ( neghsh[r+1] * ksm[r-l+1] ) % Mod + Mod ) % Mod;
+}
+
+int query( int low, int high ){
+    int len = n - high, step = n;
+
+    if( getneghsh(low - len + 1, low) == getposhsh(high, n-1) ) return low - len;
+    else return n - 2;
 }
 
 signed main(){
@@ -68,16 +72,21 @@ signed main(){
 
     cin >> str;
 
+    n = str.size();
     pre();
 
-    res = n + 5;
+    res = n - 2;
     for( int i = n / 2 ; i < n ; ++i ){
         if( n % 2 == 0 ){
-            res = min(res, bs(i-1, i));
-            res = min(res, bs(i-1, i+1));
+            if( i - 1 >= 0 ) res = min(res, query(i-1, i));
+            if( i + 1 < n && i - 1 >= 0 ) res = min(res, query(i-1, i+1));
         }else{
-            res = min(res, bs(i, i+1));
-            res = min(res, bs(i-1, i+1));
+            if( i + 1 < n ) res = min(res, query(i, i+1));
+            if( i + 1 < n && i - 1 >= 0 ) res = min(res, query(i-1, i+1));
         }
     }
+
+    cout << str;
+    for( int i = res ; i >= 0 ; --i ) cout << str[i];
+    cout << "\n";
 }
