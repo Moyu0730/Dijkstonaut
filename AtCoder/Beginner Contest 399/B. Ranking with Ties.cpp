@@ -1,4 +1,4 @@
-/* Question : AtCoder Beginner Contest 398 - E. Tree Game */
+/* Question : AtCoder Beginner Contest 399 - B. Ranking with Ties */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -24,7 +24,7 @@ using namespace std;
 #define ll long long
 
 const auto dir = vector< pair<int, int> > { {1, 0}, {0, 1}, {-1, 0}, {0, -1} };
-const int MAXN = 1e8 + 50;
+const int MAXN = 1e3 + 50;
 const int Mod = 1e9 + 7;
 const long long LLINF = 0x7FFFFFFFFFFFFFFF;
 const int INF = 0x7FFFFFFF;
@@ -32,6 +32,26 @@ const int MEMINF = 0x3F;
 const int MEMINF_VAL = 0x3F3F3F3F;
 const int MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
+int n, s[MAXN];
+vector<int> v;
+
 signed main(){
     opt;
+    cin >> n;
+
+    for( int i = 0 ; i < n ; i++ ){
+        cin >> s[i];
+        v.pb(s[i]);
+    }
+
+    vsort(v);
+
+    for( int i = 0 ; i < n ; i++ ){
+        for( int j = v.size() - 1 ; j >= 0 ; j-- ){
+            if( v[j] == s[i] ){
+                cout << n - j << "\n";
+                break;
+            }
+        }
+    }
 }

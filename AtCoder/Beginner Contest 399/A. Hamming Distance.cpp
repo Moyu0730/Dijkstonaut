@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 399 - A. Hamming Distance */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -32,6 +32,18 @@ const int MEMINF = 0x3F;
 const int MEMINF_VAL = 0x3F3F3F3F;
 const int MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
+int n,c;
+string s,t;
+
 signed main(){
     opt;
+
+    cin >> n;
+    cin >> s >> t;
+
+    for( int i = 0 ; i < n ; i++ ){
+        if( s[i] != t[i] ) c++;
+    }
+
+    cout << c << "\n";
 }

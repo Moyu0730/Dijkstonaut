@@ -1,4 +1,4 @@
-/* Question : OJ Number */
+/* Question : AtCoder Beginner Contest 399 - C. Make it Forest */
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -32,6 +32,40 @@ const int MEMINF = 0x3F;
 const int MEMINF_VAL = 0x3F3F3F3F;
 const int MEMLLINF_VAL = 0x3F3F3F3F3F3F3F3F;
 
+int n, m;
+vector<int> d;
+vector<vector<int>> edges;
+int res;
+
+void dfs( int root, int fa, int time ){
+    d[root] = time + 1;
+
+    for(int i : edges[root] ) {
+        if( i == fa ) continue;
+        if( !d[i] ) dfs(i, root, d[root]);
+        else {
+            if( d[i] > d[root] ) res++;
+        }
+    }
+
+    return;
+}
+
 signed main(){
     opt;
+    cin >> n >> m;
+
+    d.resize(n + 5);
+    edges.resize(n + 5);
+    for( int i = 0 ; i < m ; ++i ){
+        int u, v;
+        cin >> u >> v;
+        edges[u].pb(v);
+        edges[v].pb(u);
+    }
+
+    for( int i = 1 ; i <= n ; i++ ){
+        if( !d[i] ) dfs(i, 0, 0);
+    }
+    cout << res;
 }
