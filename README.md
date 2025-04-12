@@ -34,6 +34,8 @@
 
 ## Code Update
 
+### Update AtCoder 399 - D. Switch Seats
+
 ### Update AtCoder 399
 
 ### Update AtCoder 398 - F. ABCBA
