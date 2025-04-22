@@ -32,7 +32,13 @@
 
 ### Off-campus Competition
 
+* **NTUIM - PDAO**：67th
+
 ## Code Update
+
+### Create Templete.cpp and .gitignore
+
+### Update PDAO 2024 and 2025 Spring Contest
 
 ### Update AtCoder 399 - D. Switch Seats
 
