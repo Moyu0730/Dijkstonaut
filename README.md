@@ -25,6 +25,10 @@
     * **Total Score**：650
     * Accepted：3
     * Wrong Answer：1
+* Beginner Contest 400
+    * **Total Score**：650
+    * Accepted：3
+    * Wrong Answer：5
 
 ### Intramural Competition
 
@@ -35,6 +39,8 @@
 * **NTUIM - PDAO**：67th
 
 ## Code Update
+
+### Update AtCoder 400
 
 ### Create Templete.cpp and .gitignore
 
